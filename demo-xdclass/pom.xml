@@ -9,8 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-01-xdclass-01</artifactId>
+    <artifactId>demo-xdclass</artifactId>
 
     <packaging>pom</packaging>
+
 
 </project>
