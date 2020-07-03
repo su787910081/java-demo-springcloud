@@ -21,6 +21,7 @@
         <module>xdclass-order-service-ribbon</module>
         <module>xdclass-order-service-ribbon-hystrix</module>
         <module>xdclass-product-service</module>
+        <module>xdclass-eureka-server-security</module>
     </modules>
 
 </project>
