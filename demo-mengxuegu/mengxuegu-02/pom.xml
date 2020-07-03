@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>demo-mengxuegu</artifactId>
+        <groupId>com.suyh</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mengxuegu-02</artifactId>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>meng-springcloud-ha-01-api</module>
+        <module>meng-springcloud-ha-02-eureka-server</module>
+        <module>meng-springcloud-ha-03-eureka-provider</module>
+        <module>meng-springcloud-ha-04-eureka-consumer</module>
+        <module>meng-springcloud-ha-05-eureka-consumer-feign</module>
+        <module>meng-springcloud-ha-06-eureka-provider-hystrix</module>
+        <module>meng-springcloud-ha-07-consumer-hystrix</module>
+        <module>meng-springcloud-ha-08-zuul-gateway</module>
+    </modules>
+
+</project>

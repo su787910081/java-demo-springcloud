@@ -3,20 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>java-demo-springcloud</artifactId>
+        <artifactId>mengxuegu-03</artifactId>
         <groupId>com.suyh</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-mengxuegu</artifactId>
+    <artifactId>meng-springcloud-config-01-api</artifactId>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>mengxuegu-01</module>
-        <module>mengxuegu-02</module>
-        <module>mengxuegu-03</module>
-    </modules>
 
 </project>
