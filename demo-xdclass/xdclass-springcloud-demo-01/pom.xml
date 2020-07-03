@@ -3,18 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>java-demo-springcloud</artifactId>
+        <artifactId>demo-xdclass</artifactId>
         <groupId>com.suyh</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-xdclass</artifactId>
+    <artifactId>xdclass-springcloud-demo-01</artifactId>
 
     <packaging>pom</packaging>
-    <modules>
-        <module>xdclass-springcloud-demo-01</module>
-    </modules>
 
+    <modules>
+        <module>xdclass-api-gateway</module>
+        <module>xdclass-eureka-server</module>
+        <module>xdclass-order-service-feign</module>
+        <module>xdclass-order-service-hystrix</module>
+        <module>xdclass-order-service-ribbon</module>
+        <module>xdclass-order-service-ribbon-hystrix</module>
+        <module>xdclass-product-service</module>
+    </modules>
 
 </project>
