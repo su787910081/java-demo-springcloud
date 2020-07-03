@@ -1,0 +1,23 @@
+# mysql 配置
+
+
+
+
+eureka:
+  client:
+    # 允许被其他服务发现
+    register-with-eureka: true
+    serviceUrl:
+      # 注册到注册中心
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://docker:3306/suyh_db?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+  application:
+    name: scheduler-service
+
+
