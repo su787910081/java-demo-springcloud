@@ -9,7 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springcloud-01-api</artifactId>
+    <artifactId>mengxuegu-01</artifactId>
 
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springcloud-01-api</module>
+        <module>springcloud-02-provider</module>
+        <module>springcloud-03-consumer</module>
+        <module>springcloud-04-eureka-server</module>
+        <module>springcloud-05-eureka-server-ha</module>
+    </modules>
 
 </project>
