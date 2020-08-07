@@ -25,6 +25,7 @@ zuul:
     order-service: /apigateway/order/**
     # 以 /apigateway/product/ 开头的api 地址都会被转到 product-service 微服务
     # 我们可以使用参数：stripPrefix来指定不去掉前缀。
+    # 当前代码通过网关访问product-service地址为 "localhost:9000/apigateway/product/api/v1/product/list"
     product-service: # 路由名称，名称任意，路由名称唯一。当以这种方式进行路由配置时这个名称任意，只需要唯一就可以了。
       path: /apigateway/product/** # 访问路径
       serviceId: product-service # 指定服务ID，会自动从Eureka中找到此服务的ip和端口

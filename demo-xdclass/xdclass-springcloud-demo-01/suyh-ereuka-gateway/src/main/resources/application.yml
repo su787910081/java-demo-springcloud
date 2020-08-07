@@ -1,0 +1,46 @@
+server:
+  port: 9000
+
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 允许直接通过服务名进行转发
+          # http://网关地址/服务名称（大写）/**
+          enabled: true
+          # http://网关地址/服务名称（大写）/**
+          # 允许小写的服务名称进行访问
+          lowerCaseServiceId: true
+      routes:
+        - id: product-service
+          # lb代表从注册中心获取服务
+          uri: lb://product-service
+          # 还可以直接指定目标地址进行转发
+          # uri: http://localhost:8762
+          predicates:
+            # 可以同时记录多个
+            - Path=/apigateway/product/**,/foo/{segment},/bar/{segment}
+            # Query 可以为正则表达式
+            - Query=baz
+          filters:
+            # 当请求路径匹配到/hello/world/HiController/**会将包含hello和后边的字符串接去掉转发，
+            # StripPrefix=2就代表截取路径的个数，这样配置后当请求/hello/world/HiController/aaa后端匹配到的请求路径，
+            # 就会变成http://localhost:8762/HiController/aaa
+            # http://localhost:9000/apigateway/product/api/v1/product/list
+            #  ==> http://[目标服务器的地址]/api/v1/product/list
+            - StripPrefix=2
+  application:
+    name: eureka-gateway
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    # 如果不想整合EUREKA client 则可以用下面的配置将其关闭
+    # enabled: false
+    serviceUrl:
+      # 指定注册中心地址
+      defaultZone: http://localhost:8761/eureka/
+

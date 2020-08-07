@@ -23,6 +23,7 @@
         <module>xdclass-product-service</module>
         <module>xdclass-eureka-server-security</module>
         <module>xdclass-order-service-scheduler</module>
+        <module>suyh-ereuka-gateway</module>
     </modules>
 
 </project>
