@@ -30,7 +30,7 @@ zuul:
       serviceId: product-service # 指定服务ID，会自动从Eureka中找到此服务的ip和端口
       # 代理转发时是否去掉前缀，false: 代理转发时不去掉前缀 true: 代理转发时去掉前缀(默认配置)
       # 例如: 为true时请求 /product/get/1，代理转发到/get/1
-      stripPrefix: false
+      stripPrefix: true
   # 统一入口为上面的配置，其他入口忽略
   # 禁止用户使用微服务名称来访问接口(前提是每一个微服务名都是以 -service 为后缀)，
   # 而必须使用网关路由配置给出的配置进行访问，需要添加下面这个配置
