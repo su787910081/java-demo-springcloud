@@ -21,7 +21,7 @@ zuul:
   routes:
     # 以 /apigateway/order/ 开头的api 地址都会被转到 order-service 微服务
     # 同时，在默认情况下。这些前缀将会被去掉，然后再以后面的路径去访问实际的微服务API
-    # 例如: localhost/apigateway/order/listOrder 到order-service 的路径就是: localhost/listOrder
+    # 例如: localhost:9000/apigateway/order/listOrder 到order-service 的路径就是: localhost:9000/listOrder
     order-service: /apigateway/order/**
     # 以 /apigateway/product/ 开头的api 地址都会被转到 product-service 微服务
     # 我们可以使用参数：stripPrefix来指定不去掉前缀。
