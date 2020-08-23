@@ -1,3 +1,6 @@
 eureka:
   instance:
     hostname: 192.168.127.144
+spring:
+  profiles:
+    include: single

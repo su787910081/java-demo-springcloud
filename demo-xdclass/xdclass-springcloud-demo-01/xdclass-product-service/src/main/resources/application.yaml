@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: product-service
+eureka:
+  client:
+    register-with-eureka: true

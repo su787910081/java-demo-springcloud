@@ -1,0 +1,6 @@
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  profiles:
+    include: single
