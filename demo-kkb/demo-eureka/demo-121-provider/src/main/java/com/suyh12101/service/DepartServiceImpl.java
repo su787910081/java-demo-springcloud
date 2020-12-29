@@ -21,6 +21,7 @@ public class DepartServiceImpl implements DepartService {
         // depart的id不为null，且DB中该id存在：save()执行的是修改操作
         // depart的id不为null，但DB中该id不存在：save()执行的是插入操作，
         //      但其播入后的记录id值并不是这里指定的id，而是其根据指定的id生成策略所生成的id
+        //      所以这里传入的任何ID 值都是没有用的，这里内部会自己处理生成相关的ID 值
         Depart obj = repository.save(depart);
         return obj != null ? true : false;
     }

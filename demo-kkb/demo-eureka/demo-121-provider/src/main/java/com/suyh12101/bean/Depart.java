@@ -17,7 +17,8 @@ import javax.persistence.Id;
 // 只有在访问这个动态代码对象的详情时，才会真正的去数据库中做查询操作。比如下面的这句操作代码。
 // String name = depart.getName();  // 访问动态代理对象的详情
 // 所以使用下面这个注解忽略掉这些json属性
-// TODO: 没弄明白
+// 这里的意思是，如果直接从数据库中查询出来，然后返回的结果我们不做任何访问操作就直接返回给WEB 前端的话，
+// 这个时候会进行序列化，而以这时这个代理对象实际上是没有任何实际数据的，序列化就会报错，抛出异常。
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "fieldHandler"})
 public class Depart {
     @Id  // 表示当前属性为自动建的表的主键
