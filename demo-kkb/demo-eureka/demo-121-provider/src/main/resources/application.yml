@@ -22,13 +22,13 @@ spring:
 # 配置日志
 logging:
   pattern:
-    console: level-%level %msg%n
+    console: '%d{HH:mm:ss.SSS} [%thread] %-5level %logger:%L - %msg%n'
 
   level:
     root: info
     org.hibernate: info
-    # 在show-sql为true时显示SQL中的动态参数值
+    # 在${spring.jpa.show-sql}为true时显示SQL中的动态参数值
     org.hibernate.type.descriptor.sql.BasicBinder: trace
-    # 在show-sql为true时显示查询结果
+    # 在${spring.jpa.show-sql}为true时显示查询结果
     org.hibernate.hql.internal.ast.exec.BasicExecutor: trace
-    com.abc: debug
+    com.suyh12101: debug
