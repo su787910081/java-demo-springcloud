@@ -70,15 +70,22 @@ info:
 eureka:
   client:
     # 指定区域名称
-    region: xxx
+    region: xxx,ooo,jjj
     # 指定区域中所包含的地带zone
     availability-zones:
+      # 这里的xxx,ooo,jjj都是上面指定的 ${eureka.client.region} 的值
+      # 每个region 中可用的zone
       xxx: kkb1, kkb2
+      ooo: kkbo1, kkbo2
+      jjj: kkbj1, kkbj2
     # 指定各个地带zone中所包含的eureka server地址
     service-url:
-      kkb1: http://localhost:8000/eureka
+      # 这里的kkb1,kkb2 是${eureka.client.availability-zones} 下面配置的zone值
+      # 这里配置有效的zone 的访问地址，如果是集群用逗号隔开
+      kkb1: http://localhost:8000/eureka,http://localhost:8000/eureka
       kkb2: http://localhost:8000/eureka
     # 指定要连接的注册中心所在区域
+    # 这里的值必须是上面配置的值 -- 在${eureka.client.region} 中选择一项
     fetch-remote-regions-registry: xxx
 management:
   # 开启所有监控终端
