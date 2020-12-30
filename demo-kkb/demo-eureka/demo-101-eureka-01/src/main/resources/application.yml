@@ -10,6 +10,8 @@ eureka:
     register-with-eureka: false  # 指定当前主机是否需要向Eureka Server注册自己
     fetch-registry: false   # 指定当前主机是否需要从Eureka Server下载服务注册表
     service-url:
+      # 相同的配置项 eureka.client.service-url.defaultZone 在服务端是指定暴露给客户端访问的地址
+      # 而它在客户端，则是访问eureka 服务的地址
       # 当前Eureka Server对外暴露的服务地址
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
       # defaultZone: http://localhost:8000/eureka

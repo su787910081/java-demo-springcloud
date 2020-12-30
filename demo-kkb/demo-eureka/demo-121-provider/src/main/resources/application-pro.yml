@@ -37,21 +37,21 @@ logging:
     org.hibernate.hql.internal.ast.exec.BasicExecutor: trace
     com.suyh12101: debug
 
-eureka:
-  client:
-    service-url:
-      # 相同的配置项 eureka.client.service-url.defaultZone 在服务端是指定暴露给客户端访问的地址
-      # 而它在客户端，则是访问eureka 服务的地址
-      # 指定当前Client所要连接的eureka Server
-      defaultZone: http://localhost:8000/eureka
-      # defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
-  instance:
-    # 该ID 将会显示在eureka 注册中心的Status 那一栏
-    instance-id: abcmsc-provider-8081
-    # 设置当前Client每1秒向Server发送一次心跳，单位秒
-    lease-renewal-interval-in-seconds: 1
-    # 指定让Server认定当前Client已经失效的时间，将来可以从注册表中剔除了，单位秒
-    lease-expiration-duration-in-seconds: 3
+#eureka:
+#  client:
+#    service-url:
+#      # 相同的配置项 eureka.client.service-url.defaultZone 在服务端是指定暴露给客户端访问的地址
+#      # 而它在客户端，则是访问eureka 服务的地址
+#      # 指定当前Client所要连接的eureka Server
+#      defaultZone: http://localhost:8000/eureka
+#      # defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
+#  instance:
+#    # 该ID 将会显示在eureka 注册中心的Status 那一栏
+#    instance-id: abcmsc-provider-8081
+#    # 设置当前Client每1秒向Server发送一次心跳，单位秒
+#    lease-renewal-interval-in-seconds: 1
+#    # 指定让Server认定当前Client已经失效的时间，将来可以从注册表中剔除了，单位秒
+#    lease-expiration-duration-in-seconds: 3
 
 
 info:
@@ -63,6 +63,23 @@ info:
     name: www.suyh.com
     addr: 广东深圳
 
+
+# eureka 的复杂配置
+# region与zone的关系是1:n
+# zone与eureka的关系是1:n
+eureka:
+  client:
+    # 指定区域名称
+    region: xxx
+    # 指定区域中所包含的地带zone
+    availability-zones:
+      xxx: kkb1, kkb2
+    # 指定各个地带zone中所包含的eureka server地址
+    service-url:
+      kkb1: http://localhost:8000/eureka
+      kkb2: http://localhost:8000/eureka
+    # 指定要连接的注册中心所在区域
+    fetch-remote-regions-registry: xxx
 management:
   # 开启所有监控终端
   endpoints:
