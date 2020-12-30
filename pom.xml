@@ -15,6 +15,7 @@
         <module>demo-kkb/demo-eureka/demo-101-eureka-01</module>
         <module>demo-kkb/demo-eureka/demo-101-common</module>
         <module>demo-kkb/demo-eureka/demo-121-provider</module>
+        <module>demo-kkb/demo-eureka/demo-131-consumer</module>
     </modules>
 
     <packaging>pom</packaging>
