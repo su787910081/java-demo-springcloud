@@ -66,9 +66,10 @@ public class DepartController {
                 String host = instance.getHost();
                 Map<String, String> metadata = instance.getMetadata();
                 System.out.println("serviceId = " + serviceId);
-                System.out.println("instanceId = " + serviceId);
+                // System.out.println("instanceId = " + serviceId);
                 System.out.println("host = " + host);
                 System.out.println("metadata = " + metadata);
+                System.out.println("############################");
             }
         }
         return services;
