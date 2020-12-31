@@ -68,8 +68,12 @@ management:
   endpoints:
     web:
       exposure:
+        # 修改服务的状态为DOWN，使其不能通过注册中心访问该服务，而直接访问该服务地址还是可以的。
+        # POST 请求 localhost:8081/actuator/service-registry
+        # {"status": DOWN"}
         include: "*"
   # 开启shutdown监控终端
+  # 服务下架，直接将服务停掉了。但是一般我们不这样做，而是仅修改状态即可
   endpoint:
     shutdown:
       enabled: true

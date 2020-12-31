@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8100
 
 eureka:
   instance:
@@ -13,8 +13,7 @@ eureka:
       # 相同的配置项 eureka.client.service-url.defaultZone 在服务端是指定暴露给客户端访问的地址
       # 而它在客户端，则是访问eureka 服务的地址
       # 当前Eureka Server对外暴露的服务地址
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-      # defaultZone: http://localhost:8000/eureka
+      defaultZone: http://localhost:8100/eureka,http://localhost:8200/eureka,http://localhost:8300/eureka
   server:
     # 自我保护机制
     enable-self-preservation: true
@@ -24,6 +23,6 @@ eureka:
     # 定时器的定时周期
     # 一直打印的日志：'AbstractInstanceRegistry  : Running the evict task with compensationTime'
     # eureka server 清理down 掉的微服务的定时任务时间窗，一次清理所有已经down 掉且满足踢掉的条件的微服务。
-    eviction-interval-timer-in-ms: 10000
+    eviction-interval-timer-in-ms: 60000
     # 推算期望每分钟心跳数的一个时间窗口时间段，默认为15 分钟。单位：毫秒
     renewal-threshold-update-interval-ms: 900000

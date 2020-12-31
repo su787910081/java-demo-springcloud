@@ -11,6 +11,7 @@
         <module>demo-eureka</module>
         <module>demo-eureka/demo-101-common</module>
         <module>demo-eureka/demo-101-eureka-01</module>
+        <module>demo-eureka/demo-101-eureka-02-cluster</module>
         <module>demo-eureka/demo-121-provider</module>
         <module>demo-eureka/demo-131-consumer</module>
     </modules>

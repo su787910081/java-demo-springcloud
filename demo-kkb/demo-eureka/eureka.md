@@ -101,3 +101,13 @@
 - 说明
 
   > 若 `Renews (last min)` < `Renews threshold` 时启用自我保护机制
+
+### 服务离线
+
+- 服务下架
+
+  > 将注册到EurekaServer中的EurekaClient 从Server 的注册表中移除，这样其他Client就无法发现该Client了
+
+- 服务下线
+
+  > Client并没有从EurekaServer的注册表中移除(其他Client仍可发现该服务)，而是通过修改服务的状态来达到其它Client无法调用的目标。
