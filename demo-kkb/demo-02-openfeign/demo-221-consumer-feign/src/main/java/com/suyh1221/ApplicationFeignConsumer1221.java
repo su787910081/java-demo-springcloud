@@ -1,11 +1,11 @@
-package com.suyh1211;
+package com.suyh1221;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApplicationProvider1211 {
+public class ApplicationFeignConsumer1221 {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationProvider1211.class, args);
+        SpringApplication.run(ApplicationFeignConsumer1221.class, args);
     }
 }

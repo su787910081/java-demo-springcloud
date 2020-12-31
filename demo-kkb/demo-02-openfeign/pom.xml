@@ -16,6 +16,7 @@
 
     <modules>
         <module>demo-211-provider</module>
+        <module>demo-221-consumer-feign</module>
     </modules>
 
 </project>
