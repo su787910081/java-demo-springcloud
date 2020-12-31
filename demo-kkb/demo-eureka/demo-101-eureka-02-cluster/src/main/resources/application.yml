@@ -7,7 +7,9 @@ spring:
 eureka:
   instance:
     # 配置当前主机名
-    hostname: localhost
+    # TODO: 注意 ${eureka.instance.hostname} 不能配置相同了，否则会认为是同一实例。客户端也只会到同一实例上注册一次
+    # 就可能会出现，多个注册中心实例只有一个注册中心有客户端上来注册
+    hostname: localhost-${server.port}
   client:
     # 单机eureka 时需要为false
     register-with-eureka: false  # 指定当前主机是否需要向Eureka Server注册自己
