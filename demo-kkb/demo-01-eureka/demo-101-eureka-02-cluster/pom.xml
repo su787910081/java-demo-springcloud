@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.suyh10101</groupId>
+    <groupId>com.suyh</groupId>
     <artifactId>demo-101-eureka-02-cluster</artifactId>
 
     <dependencies>

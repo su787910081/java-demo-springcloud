@@ -10,7 +10,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.suyh10101</groupId>
     <artifactId>demo-101-eureka-01-alone</artifactId>
 
     <dependencies>
