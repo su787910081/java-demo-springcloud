@@ -15,11 +15,13 @@ eureka:
       # 当前Eureka Server对外暴露的服务地址
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
       # defaultZone: http://localhost:8000/eureka
-
   server:
-    # 关闭自我保护机制
-    enable-self-preservation: false
+    # 自我保护机制
+    enable-self-preservation: true
     # 指定自我保护机制的开启阈值，默认为 0.85
     renewal-percent-threshold: 0.75
-    # 设置server端剔除不可用服务的时间窗，单位毫秒
-    eviction-interval-timer-in-ms: 4000
+    # 设置 eureka server 端剔除不可用服务的时间窗，单位毫秒
+    # eureka server 清理down 掉的微服务的定时任务时间窗，一次清理所有已经down 掉且满足踢掉的条件的微服务。
+    eviction-interval-timer-in-ms: 1000
+    # 推算期望每分钟心跳数的一个时间窗口时间段，默认为15 分钟。单位：毫秒
+    renewal-threshold-update-interval-ms: 900000
