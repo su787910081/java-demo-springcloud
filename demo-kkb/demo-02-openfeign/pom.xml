@@ -14,4 +14,8 @@
 
     <packaging>pom</packaging>
 
+    <modules>
+        <module>demo-211-provider</module>
+    </modules>
+
 </project>
