@@ -5,4 +5,12 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka
+      # defaultZone: http://localhost:8000/eureka
+      defaultZone: http://localhost:8100/eureka,http://localhost:8200/eureka,http://localhost:8300/eureka
+  instance:
+    # 该ID 将会显示在eureka 注册中心的Status 那一栏
+    instance-id: abcmsc-consumer-8080
+    # 设置当前Client向Server发送一次心跳的时间间隔，单位秒
+    lease-renewal-interval-in-seconds: 1
+    # 指定让Server认定当前Client已经失效的时间，将来可以从注册表中剔除了，单位秒
+    lease-expiration-duration-in-seconds: 3

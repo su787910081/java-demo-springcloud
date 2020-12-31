@@ -1,6 +1,9 @@
 server:
   port: 8100
 
+spring:
+  application:
+    name: msc-eureka-server
 eureka:
   instance:
     # 配置当前主机名
@@ -23,6 +26,6 @@ eureka:
     # 定时器的定时周期
     # 一直打印的日志：'AbstractInstanceRegistry  : Running the evict task with compensationTime'
     # eureka server 清理down 掉的微服务的定时任务时间窗，一次清理所有已经down 掉且满足踢掉的条件的微服务。
-    eviction-interval-timer-in-ms: 60000
+    eviction-interval-timer-in-ms: 5000
     # 推算期望每分钟心跳数的一个时间窗口时间段，默认为15 分钟。单位：毫秒
     renewal-threshold-update-interval-ms: 900000
