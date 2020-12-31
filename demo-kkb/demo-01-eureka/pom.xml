@@ -10,8 +10,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-eureka</artifactId>
+    <artifactId>demo-01-eureka</artifactId>
 
     <packaging>pom</packaging>
+
+    <modules>
+        <module>demo-101-common</module>
+        <module>demo-101-eureka-01-alone</module>
+        <module>demo-101-eureka-02-cluster</module>
+        <module>demo-121-provider</module>
+        <module>demo-131-consumer</module>
+    </modules>
 
 </project>
