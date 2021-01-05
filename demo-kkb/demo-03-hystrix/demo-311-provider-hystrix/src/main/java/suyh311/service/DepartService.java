@@ -1,6 +1,7 @@
 package suyh311.service;
 
-import com.abc.bean.Depart;
+
+import suyh311.bean.Depart;
 
 import java.util.List;
 

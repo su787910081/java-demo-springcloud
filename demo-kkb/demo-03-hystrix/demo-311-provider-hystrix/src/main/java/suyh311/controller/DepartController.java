@@ -1,7 +1,5 @@
 package suyh311.controller;
 
-import com.abc.bean.Depart;
-import com.abc.service.DepartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -13,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import suyh311.bean.Depart;
+import suyh311.service.DepartService;
 
 import java.util.List;
 import java.util.Map;

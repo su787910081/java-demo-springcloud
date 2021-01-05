@@ -1,9 +1,9 @@
 package suyh311.service;
 
-import com.abc.bean.Depart;
-import com.abc.repository.DepartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import suyh311.bean.Depart;
+import suyh311.repository.DepartRepository;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

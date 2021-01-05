@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApplicationProvider8081 {
+public class ApplicationProviderHystrix {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationProvider8081.class, args);
+        SpringApplication.run(ApplicationProviderHystrix.class, args);
     }
 
 }
