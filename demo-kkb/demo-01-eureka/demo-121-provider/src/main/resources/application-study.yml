@@ -47,6 +47,7 @@ logging:
 #      # defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
 #  instance:
 #    # 该ID 将会显示在eureka 注册中心的Status 那一栏
+#    # TODO: 注意，${eureka.instance.instance-id}这个值不能相同，如果相同则注册中心会认为是同一个实例
 #    instance-id: abcmsc-provider-8081
 #    # 设置当前Client每1秒向Server发送一次心跳，单位秒
 #    lease-renewal-interval-in-seconds: 1
