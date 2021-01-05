@@ -19,7 +19,7 @@ import java.util.List;
 // 4)接口上与方法上的Mapping的参数URI要与提供者处理器相应方法上的Mapping的URI相同
 
 // 指定当前为Feign客户端，参数为提供者的微服务名称
-@FeignClient("abcmsc-provider-depart")
+@FeignClient(value = "abcmsc-provider-depart", path = "/suyh")
 @RequestMapping("/provider/depart")
 public interface DepartService {
     @PostMapping("/save")

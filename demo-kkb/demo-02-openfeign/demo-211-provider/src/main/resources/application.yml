@@ -1,5 +1,8 @@
 server:
   port: 8081
+  servlet:
+    # 添加上下文
+    context-path: /suyh
 
 spring:
   # 配置spring data jpa

@@ -14,6 +14,8 @@ import java.util.List;
         // 所有方法级映射要使用的前缀。
         // 我的理解就是下面所有的方法的 @RequestMapping 都自动添加一个  "/product" 的访问前缀
         // 相当于在类上加 requestMapping
+        // 新理解，这里的path 的确是一个前缀，但是前缀我们应该填充服务的上下文路径，而 "/product"的前缀应该在类上面添加
+        // @RequestMapping 注解上面。
         path = "/product",
         fallback = ProductClientServiceFallback.class)
 public interface ProductClientService {
