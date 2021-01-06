@@ -31,3 +31,10 @@
     >>>>>     public class ${NAME} {
     >>>>>     }
     >>>>> ```
+    
+参考博客: 
+https://blog.csdn.net/nb7474/article/details/84440822
+https://blog.csdn.net/weixin_34256074/article/details/86128105
+属性常量: 
+com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager
+
