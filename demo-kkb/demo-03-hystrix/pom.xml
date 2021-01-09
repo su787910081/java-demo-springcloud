@@ -16,6 +16,7 @@
     <modules>
         <module>demo-311-provider-hystrix</module>
         <module>demo-321-consumer-feign-fallbackmethod</module>
+        <module>demo-322-consumer-fallbackfactory</module>
     </modules>
 
 
