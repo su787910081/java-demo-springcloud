@@ -36,11 +36,15 @@ feign:
 
 # Hystrix 官网配置
 # https://github.com/Netflix/Hystrix/wiki/Configuration
+# 源代码中的默认值参考类: com.netflix.hystrix.HystrixCommandProperties
+# 不过这里配置的是全局性的默认值，所以会有前缀 hystrix.command.default.*
 hystrix:
   command:
     default:
       execution:
         isolation:
+          # 隔离策略二选一[thread/semaphore]，默认为线程隔离
+          strategy: thread
           thread:
             # 线程隔离默认(全局性)超时间
             # 系统默认的默认超时时间为: 1 秒
@@ -48,4 +52,60 @@ hystrix:
             # 这个是什么意思呢，就是整个系统中使用到的线程隔离级别的超时都是这个默认值
             # 这个默认值的优先级是最低的，只要在任何地方对这个值做了修改那么在那个地方它的默认超时间就以它为准
             # 比如：在com.suyh322.controller.SomeController.getByIdHandler 上面的注解@HystrixCommand
+            # 需要开启超时时限的配置: ${hystrix.command.default.execution.timeout.enabled}
             timeoutInMilliseconds: 4000
+            # 默认值: true
+            # 当线程执行超时时是否中断线程的执行。
+            interruptOnTimeout:timeout: true
+            # 默认值: false
+            # 在线程执行过程中，若请求取消了，当前执行线程是否结束
+            interruptOnCancel: false
+          # 是否开启超时时限，若关闭，则其他设置的相关的超时配置将都无效。
+          enabled: true
+
+          semaphore:
+            # 默认值: 10
+            # 隔离策略的配置项: ${hystrix.command.default.execution.isolation.strategy}
+            # 若采用信号量执行隔离策略，则可通过以下属性修改信号量的数量，即对某一依赖所允许的请求的最高并发量。
+            maxConcurrentRequests: 10
+
+      fallback:
+        # 默认值: true
+        # 服务降级开关
+        # 无论是线程隔离还是信号量隔离，当请求数量到达其设置的上限后再有请求到达是否会对请求进行降级处理。
+        # 若该值为false，则直接拒绝请求。
+        enabled: true
+
+      circuitBreaker:
+        # 默认值: true
+        # 熔断功能开关
+        enabled: true
+        # 默认值: 20
+        # 熔断器开启阈值
+        # 在熔断时间窗(10秒)内，请求失败的数量超过该值时，将开启熔断器。
+        # TODO: 不知道该值跟 ${hystrix.command.default.circuitBreaker.errorThresholdPercentage} 是否需要匹配使用
+        requestVolumeThreshold: 20
+        # 默认值: 5000
+        # 当某个服务被熔断后，会在这个时间之后尝试再次开启该服务的访问。
+        sleepWindowInMilliseconds: 5000
+        # 默认值: 50
+        # 当请求的错误率高于该百分比时，将开启熔断器。
+        # TODO: 不知道该值跟 ${hystrix.command.default.circuitBreaker.requestVolumeThreshold} 是否需要匹配使用
+        errorThresholdPercentage: 50
+        # 默认值: false
+        # 强制开启熔断器
+        forceOpen: false
+        # 默认值: false
+        # 强制关闭熔断器
+        forceClosed: false
+
+  # 线程池相关的配置
+  threadpool:
+    default:
+      coreSize: 10
+      maximumSize: 10
+      maxQueueSize: -1
+      queueSizeRejectionThreshold: 5
+      keepAliveTimeMinutes: 1
+      allowMaximumSizeToDivergeFromCoreSize: false
+
