@@ -1,5 +1,6 @@
 package suyh311.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -17,6 +18,7 @@ import suyh311.service.DepartService;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/provider/depart")
 public class DepartController {
@@ -43,6 +45,7 @@ public class DepartController {
 
     @GetMapping("/get/{id}")
     public Depart getHandler(@PathVariable("id") Integer id) {
+        log.info("getHandler");
         return service.getDepartById(id);
     }
 
