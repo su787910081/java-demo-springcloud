@@ -42,6 +42,8 @@ public class SomeController {
     // 无法给客户端正常响应时，就会调用fallbackMethod指定的方法
 
     @HystrixCommand(fallbackMethod = "getHystrixHandler",
+            // 这里的超时时间比配置文件中设置的全局性的超时时间的优先级更高，所以会以这里的超时时间为准
+            // 属性可以参考: com.netflix.hystrix.HystrixCommandProperties
             commandProperties = @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value="2000"))
     @GetMapping("/get/{id}")
     public Depart getByIdHandler(@PathVariable("id") int id) {

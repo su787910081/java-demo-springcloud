@@ -34,10 +34,18 @@ feign:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
+# Hystrix 官网配置
+# https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
+            # 线程隔离默认(全局性)超时间
+            # 系统默认的默认超时时间为: 1 秒
+            # 修改默认超时时间为: 4 秒
+            # 这个是什么意思呢，就是整个系统中使用到的线程隔离级别的超时都是这个默认值
+            # 这个默认值的优先级是最低的，只要在任何地方对这个值做了修改那么在那个地方它的默认超时间就以它为准
+            # 比如：在com.suyh322.controller.SomeController.getByIdHandler 上面的注解@HystrixCommand
             timeoutInMilliseconds: 4000
