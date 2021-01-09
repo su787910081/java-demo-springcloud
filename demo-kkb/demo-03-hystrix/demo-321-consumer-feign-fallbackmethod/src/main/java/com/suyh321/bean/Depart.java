@@ -1,4 +1,4 @@
-package com.abc.bean;
+package com.suyh321.bean;
 
 import lombok.Data;
 

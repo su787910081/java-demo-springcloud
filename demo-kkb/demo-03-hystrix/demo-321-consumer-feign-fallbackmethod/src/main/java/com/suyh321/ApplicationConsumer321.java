@@ -1,4 +1,4 @@
-package com.abc;
+package com.suyh321;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
@@ -9,10 +9,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 // @SpringBootApplication
 @EnableFeignClients  // 开启Feign客户端
 @SpringCloudApplication
-public class ApplicationConsumer8080 {
+public class ApplicationConsumer321 {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationConsumer8080.class, args);
+        SpringApplication.run(ApplicationConsumer321.class, args);
     }
 
 }

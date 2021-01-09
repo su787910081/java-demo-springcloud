@@ -1,6 +1,6 @@
-package com.abc.configure;
+package com.suyh321.configure;
 
-import com.abc.balance.CustomRule;
+import com.suyh321.balance.CustomRule;
 import com.netflix.loadbalancer.IRule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;

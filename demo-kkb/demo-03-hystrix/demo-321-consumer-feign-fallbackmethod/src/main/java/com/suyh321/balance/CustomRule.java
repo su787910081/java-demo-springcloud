@@ -1,4 +1,4 @@
-package com.abc.balance;
+package com.suyh321.balance;
 
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.IRule;

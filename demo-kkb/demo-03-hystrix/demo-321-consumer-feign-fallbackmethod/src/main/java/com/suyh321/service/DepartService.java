@@ -1,6 +1,6 @@
-package com.abc.service;
+package com.suyh321.service;
 
-import com.abc.bean.Depart;
+import com.suyh321.bean.Depart;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
