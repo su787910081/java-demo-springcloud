@@ -56,9 +56,11 @@ hystrix:
             timeoutInMilliseconds: 4000
             # 默认值: true
             # 当线程执行超时时是否中断线程的执行。
+            # 如果网络执行超时比线程超时的时间长，而线程超时时，是否将网络请求断开。
+            # 即：我们已经不需要网络的返回结果了，已经没有意义了。
             interruptOnTimeout:timeout: true
             # 默认值: false
-            # 在线程执行过程中，若请求取消了，当前执行线程是否结束
+            # 在线程执行过程中，若(用户)请求取消了，当前执行线程是否结束
             interruptOnCancel: false
           # 是否开启超时时限，若关闭，则其他设置的相关的超时配置将都无效。
           enabled: true
