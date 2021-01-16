@@ -20,6 +20,12 @@ import java.util.List;
 
 // 指定当前为Feign客户端，参数为提供者的微服务名称
 // fallback用于指定当前Feign接口的服务降级类
+
+/**
+ * 这里@FeignClient() 注解中有两个属性都可以指定服务降级类，不过这两个属性所指定的服务降级类是有所不同的。
+ * fallback属性: 它指定的服务降级类是实现当前接口的一个实现类
+ * fallbackFactory属性: 它指定的服务降级类是需要实现 FallbackFactory 这个接口的实现类
+ */
 @FeignClient(value = "abcmsc-provider-depart", fallback = DepartFallback.class, path = "/suyh")
 @RequestMapping("/provider/depart")
 public interface DepartService {
