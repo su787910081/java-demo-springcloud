@@ -20,7 +20,7 @@ import java.util.List;
 
 // 指定当前为Feign客户端，参数为提供者的微服务名称
 // fallback用于指定当前Feign接口的服务降级类
-@FeignClient(value = "abcmsc-provider-depart", path = "/suyh")
+@FeignClient(value = "abcmsc-provider-depart", fallback = DepartFallback.class, path = "/suyh")
 @RequestMapping("/provider/depart")
 public interface DepartService {
     @PostMapping("/save")
