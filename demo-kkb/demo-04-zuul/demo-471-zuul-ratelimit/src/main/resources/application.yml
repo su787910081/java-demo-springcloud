@@ -31,6 +31,7 @@ zuul:
 ribbon:
   # Ribbon 的超时配置
   ConnectTimeout: 5000
+  # 读取超时，试了一下。它的默认值应该是1 秒。但是不知道它实际在哪里做的
   ReadTimeout: 5000
 hystrix:
   command:
