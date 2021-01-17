@@ -11,5 +11,15 @@ eureka:
       defaultZone: http://localhost:8000/eureka
 
   instance:
+    # 自定义Eureka 的元数据信息
+    # 通过该元数据信息的值来匹配，当前实例是否为灰度发布的实例
     metadata-map:
+      # 自定义元数据：key = host-mark, value = running-host
+      # 在这里约定，值为"running-host" 的实例为正常服务
+      # 值为"gray-host" 的实例为灰度功能服务
       host-mark: running-host
+      # host-mark: gray-host
+    # 设置当前Client向Server发送一次心跳的时间间隔，单位秒
+    lease-renewal-interval-in-seconds: 1
+    # 指定让Server认定当前Client已经失效的时间，将来可以从注册表中剔除了，单位秒
+    lease-expiration-duration-in-seconds: 3
