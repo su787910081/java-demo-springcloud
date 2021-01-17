@@ -8,8 +8,8 @@
     <artifactId>java-demo-springcloud</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>demo-xdclass</module>
-        <module>demo-mengxuegu</module>
+        <!-- <module>demo-xdclass</module> -->
+        <!-- <module>demo-mengxuegu</module> -->
         <module>demo-kkb</module>
         <module>demo-kkb/demo-02-openfeign/demo-211-provider</module>
     </modules>

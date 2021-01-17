@@ -10,23 +10,37 @@ spring:
   application:
     name: abcmsc-zuul-depart
 
+# 正常情况下，我们通过网关访问微服务的时候，是通过网关的域名 + 微服务名称 + rest路径进行访问的
+# e.g.: http://localhost:9000/abcmsc-consumer-depart-8090/consumer/depart/get/1
+
 zuul:
   routes:
     # 指定微服务的路由规则
+    # 这里配置的key(abcmsc-consumer-depart-8080) 是一个微服务名称，对应的valur(/abc8080/**) 是指从浏览器上输入的前缀
+    # 所有访问"/abc8080/**" 的请求都将被转发到这个微服务(abcmsc-consumer-depart-8080)。
+    # 后面的路径将保持不变
     # *为通配符
     # /** 可以匹配0到多级路径
     # /* 只能匹配一级路径
     # /? 只能匹配一级路径，且路径只能包含一个字符
     abcmsc-consumer-depart-8080: /abc8080/**
+    # 按如下配置，除了可以通过微服务名称访问之外，还可以对所有以"/abc8090/**" 前缀访问的http 请求都转发到微服务(abcmsc-consumer-depart-8090)
+    # 验证过，如果不屏蔽的话，两种方式都还是可以访问的。
     abcmsc-consumer-depart-8090: /abc8090/**
     abcmsc-consumer-depart: /abc123/**
   # 屏蔽指定微服务名称
   # ignored-services: abcmsc-consumer-depart-8080
-  #屏蔽所有微服务名称
+  # 屏蔽所有微服务名称
+  # 即：所有通过网关访问微服务的时候都不能直接使用微服务名称前缀进行访问，而必须使用配置的前缀进行路由访问
   ignored-services: "*"
   # 指定统一的前辍
+  # 即：在其他的前缀之上，还要添加此前缀才可以访问到指定的微服务
+  # 比如上面配置的"abcmsc-consumer-depart-8080: /abc8080/**"，
+  # 在没有添加当前前缀时访问路径是: "http://localhost:9000/abc8080/consumer/depart/get/1"
+  # 添加了前缀之后访问路径就应该是: "http://localhost:9000/${zuul.prefix}/abc8080/consumer/depart/get/1"
   prefix: /abc
   # 屏蔽指定的URI
   ignored-patterns: /**/list/**
-  # 屏蔽掉指定的敏感头信息，其会将原来默认的Cookie、SetCookie、Authorization敏感头信息放开
+  # 屏蔽掉指定的敏感头信息，其会将原来默认的"Cookie", "Set-Cookie", "Authorization"敏感头信息放开
+  # 源代码: org.springframework.cloud.netflix.zuul.filters.ZuulProperties.sensitiveHeaders
   sensitive-headers: token

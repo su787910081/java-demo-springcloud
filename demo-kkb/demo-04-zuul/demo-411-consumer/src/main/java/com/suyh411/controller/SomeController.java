@@ -21,10 +21,11 @@ import java.util.List;
 public class SomeController {
     @Autowired
     private RestTemplate restTemplate;
+    private static final String CONTEXT_PATH = "/suyh";
     // 直连提供者
     // private static final String SERVICE_PROVIDER = "http://localhost:8081";
     // 要使用微服务名称来从eureka server查找提供者
-    private static final String SERVICE_PROVIDER = "http://abcmsc-provider-depart";
+    private static final String SERVICE_PROVIDER = "http://abcmsc-provider-depart" + CONTEXT_PATH;
     @PostMapping("/save")
     public boolean saveHandler(@RequestBody Depart depart) {
 
