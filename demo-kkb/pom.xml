@@ -11,6 +11,7 @@
         <module>demo-01-eureka</module>
         <module>demo-02-openfeign</module>
         <module>demo-03-hystrix</module>
+        <module>demo-04-zuul</module>
     </modules>
 
     <packaging>pom</packaging>
