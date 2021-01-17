@@ -11,6 +11,9 @@ spring:
     name: abcmsc-zuul-depart
 
 zuul:
+  host:
+    # HTTP连接超时大于Hystrix的超时时间
+    connect-timeout-millis: 15000
   routes:
     abcmsc-consumer-depart-8080: /abc8080/**
     abcmsc-consumer-depart-8090: /abc8090/**
@@ -24,3 +27,24 @@ zuul:
       refresh-interval: 3    # 指定单位时间窗大小，单位秒
       limit: 3  # 在指定的单位时间窗内启用限流的限定值
       type: user,origin,url   # 指定限流查验的类型
+
+ribbon:
+  # Ribbon 的超时配置
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          # 隔离策略二选一[thread/semaphore]，默认为线程隔离
+          strategy: thread
+          thread:
+            # 线程隔离默认(全局性)超时间
+            # 系统默认的默认超时时间为: 1 秒
+            # 修改默认超时时间为: 4 秒
+            # 这个是什么意思呢，就是整个系统中使用到的线程隔离级别的超时都是这个默认值
+            # 这个默认值的优先级是最低的，只要在任何地方对这个值做了修改那么在那个地方它的默认超时间就以它为准
+            # 比如：在com.suyh322.controller.SomeController.getByIdHandler 上面的注解@HystrixCommand
+            # 需要开启超时时限的配置: ${hystrix.command.default.execution.timeout.enabled}
+            timeoutInMilliseconds: 4000

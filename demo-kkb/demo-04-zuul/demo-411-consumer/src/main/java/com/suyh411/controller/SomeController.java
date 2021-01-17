@@ -2,6 +2,7 @@ package com.suyh411.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.suyh411.bean.Depart;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/consumer/depart")
+@Slf4j
 public class SomeController {
     @Autowired
     private RestTemplate restTemplate;
@@ -48,11 +50,14 @@ public class SomeController {
     @HystrixCommand(fallbackMethod = "getHystrixHandler")
     @GetMapping("/get/{id}")
     public Depart getByIdHandler(@PathVariable("id") int id, HttpServletRequest request) {
+        System.out.println("getByIdHandler");
+        log.info("getByIdHandler");
         String url = SERVICE_PROVIDER + "/provider/depart/get/" + id;
         return restTemplate.getForObject(url, Depart.class);
     }
 
     public Depart getHystrixHandler(@PathVariable("id") int id, HttpServletRequest request) {
+        log.info("getHystrixHandler");
         System.out.println("token = " + request.getHeader("token"));
         System.out.println("Cookie = " + request.getHeader("Cookie"));
         System.out.println("Set-Cookie = " + request.getHeader("Set-Cookie"));
