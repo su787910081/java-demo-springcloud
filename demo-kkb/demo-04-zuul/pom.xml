@@ -19,6 +19,7 @@
         <module>demo-431-zuul</module>
         <module>demo-441-zuul-fallback</module>
         <module>demo-451-zuul-filter</module>
+        <module>demo-461-zuul-tokenbucket</module>
     </modules>
 
 
