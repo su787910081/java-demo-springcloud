@@ -21,6 +21,7 @@
         <module>demo-451-zuul-filter</module>
         <module>demo-461-zuul-tokenbucket</module>
         <module>demo-471-zuul-ratelimit</module>
+        <module>demo-421-consumer-gray</module>
     </modules>
 
 
