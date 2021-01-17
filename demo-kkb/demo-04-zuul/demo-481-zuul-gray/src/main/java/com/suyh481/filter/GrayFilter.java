@@ -9,6 +9,9 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 第一种方式，处理灰度发布
+ */
 // @Component
 public class GrayFilter extends ZuulFilter {
     @Override
@@ -27,6 +30,12 @@ public class GrayFilter extends ZuulFilter {
         return true;
     }
 
+    /**
+     * 这里，通过请求客户端中的请求头中的"gray-mark" 的值来判断当前请求是否走灰度实例访问请求
+     *
+     * @return
+     * @throws ZuulException
+     */
     @Override
     public Object run() throws ZuulException {
         RequestContext context = RequestContext.getCurrentContext();
@@ -34,6 +43,9 @@ public class GrayFilter extends ZuulFilter {
         // 获取指定的请求头信息，该头信息在浏览器提交请求时携带，用于区分该请求要被路由到哪个主机处理
         String mark = request.getHeader("gray-mark");
         // 默认将请求路由到running-host上
+        // 这里的"running-host" 是在访问微服务中定义的Eureka 元数据的值。
+        // 对应的key为: "host-mark"
+        // 可以查看微服务"demo-consumer-gray" 的配置项
         RibbonFilterContextHolder.getCurrentContext().add("host-mark", "running-host");
         // 若mark的值不为空且值为enable，则将请求路由到gray-host，其它请求会路由到默认的running-host
         if (!StringUtils.isEmpty(mark) && "enable".equals(mark)) {
