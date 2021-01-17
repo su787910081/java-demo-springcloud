@@ -20,6 +20,7 @@ zuul:
 
   ratelimit:
     enabled: true  # 开启限流
+    # 自定义实现：com.marcosbarbero.cloud.autoconfigure.zuul.ratelimit.config.RateLimitKeyGenerator
     # 设置限流策略
     # 在一个单位时间窗内通过该zuul的用户数量、ip数量及url数量，都不能超过3个
     default-policy:
