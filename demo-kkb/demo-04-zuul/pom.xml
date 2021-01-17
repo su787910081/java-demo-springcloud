@@ -17,6 +17,7 @@
 
         <module>demo-411-consumer</module>
         <module>demo-431-zuul</module>
+        <module>demo-441-zuul-fallback</module>
     </modules>
 
 
