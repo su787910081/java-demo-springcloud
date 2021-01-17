@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RouteFilter extends ZuulFilter {
+    // 令牌桶限流适合于突发流量的场景
     // 创建一个令牌桶，每秒生成2个令牌
     private static final RateLimiter RATE_LIMITER = RateLimiter.create(2);
 
@@ -32,6 +33,7 @@ public class RouteFilter extends ZuulFilter {
         //       若可以立即获取到1个令牌，则返回true，否则返回false。不阻塞
         // RATE_LIMITER.tryAcquire(5, 3, TimeUnit.SECONDS)：
         //      若在3秒内可以立即获取到5个令牌，则返回true，否则返回false。不阻塞
+        //      尝试获取5个令牌，限制3 秒超时时限。
         // RATE_LIMITER.acquire()：获取1个令牌，若获取不到，则阻塞直到获取到为止
         // RATE_LIMITER.acquire(5)：获取5个令牌，若获取不到，则阻塞直到获取到为止
         if (!RATE_LIMITER.tryAcquire()) {
