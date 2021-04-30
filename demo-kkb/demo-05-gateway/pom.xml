@@ -12,6 +12,7 @@
     <modules>
 <!--        <module>demo-511-gateway-config</module>-->
         <module>demo-511-gateway-config</module>
+        <module>demo-521-gateway-api</module>
     </modules>
 
     <properties>
