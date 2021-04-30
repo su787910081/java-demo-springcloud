@@ -10,9 +10,10 @@
 
     <packaging>pom</packaging>
     <modules>
-<!--        <module>demo-511-gateway-config</module>-->
+        <module>demo-501-provider</module>
         <module>demo-511-gateway-config</module>
         <module>demo-521-gateway-api</module>
+        <module>demo-531-gateway-config-ribbon</module>
     </modules>
 
     <properties>

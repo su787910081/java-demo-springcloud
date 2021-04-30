@@ -20,6 +20,7 @@ public class GatewayRouteConfiguration {
                 .route(predicateSpec ->
                         predicateSpec.path("/**/163")
                                 .uri("https://www.163.com/")
-                                .id("163_route")).build();//函数式编程思想
+                                .id("163_route"))
+                .build();//函数式编程思想
     }
 }
