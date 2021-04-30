@@ -12,6 +12,8 @@
         <module>demo-02-openfeign</module>
         <module>demo-03-hystrix</module>
         <module>demo-04-zuul</module>
+        <module>demo-05-gateway</module>
+        <module>demo-06-demo-kkb</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -1,0 +1,20 @@
+server:
+  # 默认端口是8080
+  port: 9000
+spring:
+  application:
+    name: msc-gateway-config
+  cloud:
+    gateway:
+      # 配置 路由 集合
+      routes:
+        # 路由唯一ID
+        - id: baidu_route
+          # 路由目标地址
+          uri: https://www.baidu.com
+          # 断言：拦截请求的规则
+          # 详细拦截规则：/** 表示拦截所有请求，不管有几级 /abc/bcd/edf/...
+          # /* 只拦截 /abc 一级
+          predicates:
+            # - Path=/order/**
+            - Path=/**
