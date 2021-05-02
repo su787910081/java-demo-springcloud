@@ -25,4 +25,5 @@ spring:
           uri: lb://msc-provider-depart
           predicates:
             # 拦截所有提供者的请求到提供者集群服务
+            # 详细来自spring 框架的org.springframework.util.AntPathMatcher
             - Path=/provider/depart/**
