@@ -7,7 +7,6 @@ package com.abc.filter;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -26,6 +25,7 @@ public class OneGatewayFilter implements GatewayFilter {
         exchange.getAttributes().put("startTime", startTime);
 
         //.then(//后置的filter)
+        // TODO: suyh - 这里的.then() 方法就是处理后置filter 的功能
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 
             //后置的filter

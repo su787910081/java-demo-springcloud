@@ -15,10 +15,10 @@ public class BeanConfiguration {
     public RouteLocator someRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(ps -> ps.path("/**")
-                        .filters(fs ->
-                                fs.filter(new OneGatewayFilter())
-                                        .filter(new TwoGatewayFilter())
-                                        .filter(new ThreeGatewayFilter())) // 配置自定义网关
+                        // TODO: suyh - 想要该filter 生效，需要将它放到路中
+                        .filters(fs -> fs.filter(new OneGatewayFilter())
+                                .filter(new TwoGatewayFilter())
+                                .filter(new ThreeGatewayFilter())) // 配置自定义网关
                         .uri("http://localhost:8080")
                         .id("custom_filter"))
                 .build();

@@ -21,6 +21,7 @@ spring:
           uri: http://localhost:8080
           predicates:
             - Path=/**
+          # 先是断言(predicates)，再是过滤器(filters)
           filters:
             - StripPrefix=2
 # http://127.0.0.1:9000/depart/get/1                   --> http://127.0.0.1:8080/depart/get/1

@@ -13,6 +13,10 @@ import reactor.core.publisher.Mono;
  * 3.放行请求
  * 4.在05-showinfo中，打印request的参数打印一下
  */
+// TODO: suyh - 如果想要它生效，需要将它配置到路由中，可以查看BeanConfiguration 中的bean 的创建
+// 这里实现的接口是GatewayFilter，那意思是它需要router 做为一个载体了？
+// 所以我们才在配置路由里面添加该对象，使用new 的方式，而另外的一种是实现GlobalFilter
+    // 它就是全局性的网关。对所有路由都生效。
 public class AddHeaderGatewayFilter implements GatewayFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
