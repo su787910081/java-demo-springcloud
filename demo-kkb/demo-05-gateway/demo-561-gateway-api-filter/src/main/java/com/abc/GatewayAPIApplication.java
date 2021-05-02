@@ -17,14 +17,5 @@ public class GatewayAPIApplication {
         SpringApplication.run(GatewayAPIApplication.class, args);
     }
 
-    //prefixPath过滤工厂 ： 添加前缀的
-    @Bean
-    public RouteLocator someRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route(ps -> ps.path("/**")
-                        .filters(fs -> fs.prefixPath("/consumer"))
-                        .uri("http://localhost:8080")
-                        .id("prefixPath_filter"))
-                .build();
-    }
+
 }
