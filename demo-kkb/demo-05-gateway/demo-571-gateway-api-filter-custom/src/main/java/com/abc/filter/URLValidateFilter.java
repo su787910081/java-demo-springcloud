@@ -27,6 +27,7 @@ public class URLValidateFilter implements GlobalFilter, Ordered {//Ordered 排�
             //设置提示用户未授权
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             //完结请求
+            // 直接结束当前请求，不会继续往下走了。
             return exchange.getResponse().setComplete();
         }
         //如果存在，则放行拦截器
